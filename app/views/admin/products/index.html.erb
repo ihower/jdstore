@@ -1,6 +1,42 @@
-<ul>
-  <% @products.each do |product| %>
-
-    <li> <%= link_to(product.title, admin_product_path(product)) %> </li>
-  <% end %>
-</ul>
+<h2> Product List </h2>
+<div class="pull-right" style="padding-bottom: 20px;">
+  <%= link_to("新增产品", new_admin_product_path, class: "btn btn-primary btn-sm") %>
+</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th width="220">Product Pic</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th width="100"> Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td>
+          <%= product.id %>
+        </td>
+        <td>
+          <%= link_to product_path(product) do %>
+            <% if product.image.present? %>
+              <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+            <% else %>
+              <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+            <% end %>
+          <% end %>
+        </td>
+        <td>
+          <%= product.title %>
+        </td>
+        <td>
+          <%= product.price %>
+        </td>
+        <td>
+          <%= link_to("Edit", edit_admin_product_path(product)) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

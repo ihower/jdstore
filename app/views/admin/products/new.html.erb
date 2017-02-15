@@ -18,6 +18,10 @@
     <%= f.input :price %>
   </div>
 
+  <div class="group">
+    <%= f.input :image, as: :file %>
+  </div>
+
   <%= f.submit "Submit", data: { disable_with: "Submitting..." }, :class => "btn btn-primary" %>
 
 <% end %>

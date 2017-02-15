@@ -1,12 +1,16 @@
 class Admin::ProductsController < ApplicationController
 
   layout "admin"
-  
+
   before_action :authenticate_user!
   before_action :admin_required
 
   def index
     @products = Product.all
+  end
+
+  def show
+    @product = Product.find(params[:id])
   end
 
   def new
@@ -40,7 +44,7 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :quantity, :price)
+    params.require(:product).permit(:title, :description, :quantity, :price, :image)
   end
 
 end
