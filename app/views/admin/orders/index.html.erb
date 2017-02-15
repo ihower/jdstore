@@ -1,5 +1,18 @@
 <h2>订单列表 </h2>
 
+<%= foobar_path("A", :c => "YYY", :b => "XXX") %>
+
+<p>
+  <%= form_tag admin_orders_path, :method => :get do %>
+    <%= label_tag "Date" %>
+    <%= date_field_tag :date, Date.today %>
+    <%= submit_tag :submit %>
+  <% end %>
+
+  <%= link_to "尚未處理", admin_orders_path( :status => "pending") %>
+  <%= link_to "已處理", admin_orders_path( :status => "done") %>
+</p>
+
 <table class="table table-bordered">
   <thead>
     <tr>

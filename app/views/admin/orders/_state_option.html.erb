@@ -1,5 +1,39 @@
 <div style="padding:10px; float:right;">
 
+  <% if @order.may_cancell_order? %>
+    <%= link_to("取消订单",
+                cancel_admin_order_path(order),
+                class: "btn btn-default btn-sm", method: :post) %>
+  <% end %>
+
+  <% if @order.may_ship? %>
+    <%= link_to("出货",
+                ship_admin_order_path(order),
+                class: "btn btn-default btn-sm", method: :post) %>
+  <% end %>
+
+  <% if @order.may_deliver? %>
+    <%= link_to("设为已出货",
+                shipped_admin_order_path(order),
+                class: "btn btn-default btn-sm", method: :post) %>
+  <% end %>
+
+  <% if @order.may_return_good? %>
+    <%= link_to("退货",
+                return_admin_order_path(order),
+                class: "btn btn-default btn-sm", method: :post) %>
+  <% end %>
+
+  <% if @order.order_cancelled? %>
+    <span class="label label-default">订单已取消</span>
+  <% end %>
+
+  <% if @order.good_returned? %>
+    <span class="label label-default">已退货</span>
+  <% end %>
+
+<hr>
+
   <% case order.aasm_state %>
   <% when "order_placed" %>
     <%= link_to("取消订单",

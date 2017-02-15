@@ -2,7 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  get "/foo/:a/:b/:c" => "welcome#index", :as => "foobar"
+
   resources :orders do
+    post :foo
+    collection do
+      get :bar
+    end
+
     member do
       post :pay_with_alipay
       post :pay_with_wechat

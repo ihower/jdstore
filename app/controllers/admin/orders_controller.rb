@@ -5,7 +5,23 @@ class Admin::OrdersController < ApplicationController
   before_action :admin_required
 
   def index
-    @orders = Order.order("id DESC").paginate(:page => params[:page])
+    session["foobar"] = "yes"
+
+    @orders = Order.order("id DESC")
+
+    if params[:date]
+      date = Date.parse(params[:date])
+      #@orders = @orders.where("created_at >= ? and created_at <= ?", date.beginning_of_day, date.end_of_day)
+      @orders = @orders.where( :created_at => date.beginning_of_day..date.end_of_day)
+    end
+
+    if params[:status] == "pending"
+      @orders = @orders.where( :aasm_state => ["order_placed", "paid"] )
+    elsif params[:status] == "done"
+      @orders = @orders.where.not( :aasm_state => ["order_placed", "paid"] )
+    end
+
+    @orders = @orders.paginate(:page => params[:page])
   end
 
   def show
