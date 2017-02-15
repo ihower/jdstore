@@ -1,13 +1,16 @@
 <div class="row">
-  <div class="col-md-12">
+   <div class="col-md-12">
 
-    <h2> 订单明细 </h2>
+    <h2> 订单明细 (<%= render_order_paid_state(@order) %>) </h2>
 
+    <%= render "admin/orders/state_option", order: @order %>
+    
     <table class="table table-bordered">
       <thead>
         <tr>
           <th width="80%">商品明细</th>
           <th>单价</th>
+          <th>数量</th>
         </tr>
       </thead>
       <tbody>
@@ -20,6 +23,9 @@
             <td>
               <%= product_list.product_price %>
             </td>
+            <td>
+              <%= product_list.quantity %>
+            </td>
           </tr>
         <% end %>
 
@@ -28,9 +34,9 @@
 
     <div class="total clearfix">
       <span class="pull-right">
-        总计 <%= @order.total %> CNY
-      </span>
-    </div>
+       总计 <%= @order.total %> CNY
+       </span>
+     </div>
 
      <hr>
 
@@ -60,21 +66,6 @@
         </tr>
       </tbody>
     </table>
-
-    <div class="pull-left">
-      <% if @order.order_placed? || @order.paid? %>
-         <%= link_to("申请取消订单", apply_to_cancel_order_path(@order), method: :post, class: "btn  btn-info") %>
-      <% end %>
-    </div>
-
-    <% if !@order.paid_at %>
-      <div class="group pull-right">
-        <%= link_to("以支付宝支付", pay_with_alipay_order_path(@order.token), :method => :post, :class => "btn btn-danger") %>
-        <%= link_to("以微信支付", pay_with_wechat_order_path(@order.token), :method => :post, :class => "btn btn-danger") %>
-      </div>
-    <% else %>
-      <p class="text-center">此订单已完成付款</p>
-    <% end %>
 
   </div>
 </div>

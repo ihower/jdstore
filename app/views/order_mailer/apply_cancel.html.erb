@@ -1,13 +1,18 @@
 <div class="row">
   <div class="col-md-12">
-
-    <h2> 订单明细 </h2>
-
+    <h2>
+      订单明细 <br>
+      <small>
+        <%= link_to("订单连结", order_url(@order.token)) %>
+      </small>
+    </h2>
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th width="80%">商品明细</th>
+          <th width="70%">商品明细</th>
           <th>单价</th>
+          <th>数量</th>
+          <th>小记</th>
         </tr>
       </thead>
       <tbody>
@@ -20,17 +25,23 @@
             <td>
               <%= product_list.product_price %>
             </td>
+            <td>
+              <%= product_list.quantity %>
+            </td>
+            <td>
+              <%= product_list.quantity * product_list.product_price %>
+            </td>
           </tr>
         <% end %>
 
       </tbody>
     </table>
 
-    <div class="total clearfix">
-      <span class="pull-right">
+    <div class="total group clearfix">
+      <h4 class="pull-right">
         总计 <%= @order.total %> CNY
-      </span>
-    </div>
+      </h4>
+     </div>
 
      <hr>
 
@@ -39,9 +50,7 @@
      <table class="table table-striped table-bordered">
       <tbody>
         <tr>
-          <td>
-            订购人
-          </td>
+          <td> 订购人 </td>
         </tr>
         <tr>
           <td>
@@ -49,9 +58,7 @@
           </td>
         </tr>
         <tr>
-          <td>
-            收件人
-          </td>
+          <td> 收件者 </td>
         </tr>
         <tr>
           <td>
@@ -60,21 +67,5 @@
         </tr>
       </tbody>
     </table>
-
-    <div class="pull-left">
-      <% if @order.order_placed? || @order.paid? %>
-         <%= link_to("申请取消订单", apply_to_cancel_order_path(@order), method: :post, class: "btn  btn-info") %>
-      <% end %>
-    </div>
-
-    <% if !@order.paid_at %>
-      <div class="group pull-right">
-        <%= link_to("以支付宝支付", pay_with_alipay_order_path(@order.token), :method => :post, :class => "btn btn-danger") %>
-        <%= link_to("以微信支付", pay_with_wechat_order_path(@order.token), :method => :post, :class => "btn btn-danger") %>
-      </div>
-    <% else %>
-      <p class="text-center">此订单已完成付款</p>
-    <% end %>
-
   </div>
 </div>
