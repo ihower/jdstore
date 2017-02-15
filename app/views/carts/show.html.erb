@@ -1,6 +1,11 @@
 <div class="row">
   <div class="col-md-12">
 
+    <%= link_to("清空购物车", clean_cart_path ,
+                method: :post , class: "pull-right",
+                style: "text-decoration: underline;",
+                data: { confirm: "你确定要清空整个购物车吗？"} )%>
+
     <h2> 购物车 </h2>
 
     <table class="table table-bordered">
@@ -9,6 +14,7 @@
           <th colspan="2">商品资讯</th>
           <th>单价</th>
           <th>数量</th>
+          <th>操作选项 </th>
         </tr>
       </thead>
       <tbody>
@@ -31,8 +37,18 @@
               <%= cart_item.product.price %>
             </td>
             <td>
-              <%= cart_item.quantity %>
+              <% cart_item = current_cart.cart_items.find_by(product_id: cart_item.product_id) %>
+
+              <%= form_for cart_item, url: cart_item_path(cart_item.product_id) do |f| %>
+                <%= f.select :quantity, 1..cart_item.product.quantity %>
+                <%= f.submit "更新", data: { disable_with: "Submiting..." } %>
+              <% end %>
             </td>
+            <td>
+              <%= link_to cart_item_path(cart_item.product_id), method: :delete do %>
+              <i class="fa fa-trash"></i>
+              <% end %>
+             </td>
           </tr>
         <% end %>
 
