@@ -32,4 +32,3 @@
 
 5. State Machine 釋疑: state, event 和 callbacks
    * https://github.com/aasm/aasm 用法
-
