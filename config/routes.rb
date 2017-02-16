@@ -29,7 +29,6 @@ Rails.application.routes.draw do
     end
   end
 
-  # scope :module => "admin", :as => "admin", :path => "admin" do
   namespace :admin do
     resources :products
     resources :orders do
