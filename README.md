@@ -37,7 +37,8 @@
 
 ----
 
-在本範例程式中有兩處和教材不同：
+在本範例程式和教材不同處：
 
 1. User#is_admin 欄位改成用 role:string，方便將來擴充不同權限角色
 2. Order#is_paid 欄位改成用 paid_at:datetime，可以順便紀錄付款時間
+3. 新增 rake dev:fake 指令，會產生假的產品、用戶和訂單
