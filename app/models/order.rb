@@ -45,7 +45,7 @@ class Order < ApplicationRecord
   end
 
   def pay!
-    self.update_columns(paid_at: Time.now)
+    self.update_columns(is_paid: true)
   end
 
   def generate_token

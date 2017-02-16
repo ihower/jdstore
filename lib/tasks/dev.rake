@@ -46,7 +46,7 @@ namespace :dev do
     %w[ paid shipping shipped order_cancelled good_returned ].each do |state|
       Order.all.sample(10).each do |o|
         o.update_columns( :aasm_state => state,
-                          :paid_at => Time.now - (rand(100)+1) * 3600,
+                          :is_paid => [true, false].sample,
                           :payment_method => ["alipay", "wechat"].sample )
       end
     end
