@@ -38,6 +38,7 @@ namespace :dev do
       end
 
       order.total = order.product_lists.map{ |p| p.product_price * p.quantity }.sum
+      order.created_at = Time.now - (rand(100)+1) * 3600
       order.save!
     end
 
