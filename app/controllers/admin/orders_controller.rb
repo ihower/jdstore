@@ -9,7 +9,15 @@ class Admin::OrdersController < ApplicationController
 
     @orders = Order.order("id DESC")
 
-    if params[:date]
+    if params[:amount].present?
+      @orders = @orders.where( "total > ? ", params[:amount].to_i )
+    end
+
+    if params[:ids].present?
+      @orders = @orders.where( :id => params[:ids].split(",") )
+    end
+
+    if params[:date].present?
       date = Date.parse(params[:date])
       #@orders = @orders.where("created_at >= ? and created_at <= ?", date.beginning_of_day, date.end_of_day)
       @orders = @orders.where( :created_at => date.beginning_of_day..date.end_of_day)

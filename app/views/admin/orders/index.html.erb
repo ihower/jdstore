@@ -4,8 +4,14 @@
 
 <p>
   <%= form_tag admin_orders_path, :method => :get do %>
+    <%= label_tag "Order ID" %>
+    <%= text_field_tag :ids %>
+
+    <%= label_tag "Total" %>
+    <%= number_field_tag :amount %>
+
     <%= label_tag "Date" %>
-    <%= date_field_tag :date, Date.today %>
+    <%= date_field_tag :date %>
     <%= submit_tag :submit %>
   <% end %>
 
