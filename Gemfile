@@ -31,6 +31,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 gem 'aasm'
+gem 'will_paginate'
 
 gem 'faker'
 
