@@ -27,6 +27,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 
 gem "select2-rails"
+gem 'bootstrap-datepicker-rails'
 
 gem 'simple_form'
 

@@ -7,6 +7,11 @@
   </div>
 
   <div class="group">
+    <%#= f.input :publish_on %>
+    <%= f.input :publish_on, :as => :string %>
+  </div>
+
+  <div class="group">
     <%= f.association :category %>
     <%#= f.select :category_id, Category.all.map{ |x| [x.name, x.id] }, {}, :class => "form-control" %>
   </div>
@@ -47,4 +52,6 @@
 <script>
   $("#product_category_id").select2();
   $("#product_property_ids").select2();
+
+   $('#product_publish_on').datepicker({ format: "yyyy/mm/dd" });
 </script>
