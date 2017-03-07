@@ -7,6 +7,11 @@
   </div>
 
   <div class="group">
+    <%= f.association :category %>
+    <%#= f.select :category_id, Category.all.map{ |x| [x.name, x.id] }, {}, :class => "form-control" %>
+  </div>
+
+  <div class="group">
     <%= f.input :description %>
   </div>
 
@@ -30,3 +35,7 @@
   <%= f.submit "Submit", data: { disable_with: "Submitting..." }, :class => "btn btn-primary" %>
 
 <% end %>
+
+<script>
+  $("#product_category_id").select2();
+</script>

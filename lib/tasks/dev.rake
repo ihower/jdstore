@@ -2,6 +2,12 @@ namespace :dev do
 
   task :fake => [:fake_products, :fake_users, :fake_orders]
 
+  task :fake_categories => :environment do
+    100.times do
+      Category.create!( :name => Faker::Pokemon.name )
+    end
+  end
+
   task :fake_products => :environment do
     10.times do
       Product.create!( :title => Faker::Commerce.product_name,
