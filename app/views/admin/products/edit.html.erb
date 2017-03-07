@@ -25,7 +25,7 @@
   <div>
 
   <div class="group">
-    <%= f.input :description %>
+    <%= f.input :description, :as => :text %>
   </div>
 
   <div class="group">
@@ -53,5 +53,7 @@
   $("#product_category_id").select2();
   $("#product_property_ids").select2();
 
-   $('#product_publish_on').datepicker({ format: "yyyy/mm/dd" });
+  $('#product_publish_on').datepicker({ format: "yyyy/mm/dd" });
+
+  autosize( $("#product_description") );
 </script>
