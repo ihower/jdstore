@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   def index
-    @products = Product.where("publish_on < ?", Date.today)
+    @products = Product.where("publish_on is NULL OR publish_on < ?", Date.today)
   end
 
   def show
