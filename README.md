@@ -14,6 +14,8 @@
   4. pre-processing 功能: Sass 和 CoffeeScript
 * 用戶瀏覽器是不能直接讀取 `app/assets` 目錄的，在本地開發的時候，會經過 Rails 程序回傳這些靜態檔案。在上 production 部署時，則會跑 rake assets:precompile 後放在 `public/assets` 目錄下
 
+> https://devcenter.heroku.com/articles/rails-asset-pipeline#the-rails-4-asset-pipeline
+
 * 用法：
 	manifest file 是進入點
 	require 用法
@@ -47,10 +49,16 @@
 * http://getbootstrap.com/
 * https://github.com/twbs/bootstrap-sass
 
+> application.css 改 application.scss 
+
+<!--
+
 ## Font Awesome
 
 * http://fontawesome.io/
 * https://github.com/bokmann/font-awesome-rails
+
+-->
 
 ## Select2 厲害的下拉選單
 
@@ -81,7 +89,6 @@ gem 版過期了，不要用 gem 裝，抓 js 源碼下來放 vendor/assets/ 自
 ## Chart.js
 
 * http://www.chartjs.org
-* 但是需要會 JSON
 * 是有 gem，但是只有後台報表一頁用到，就不包進 asset pipeline 了，直接放 public 目錄或用 CDN
 
 CDN 需要檢查 ping time，很多國外官方的範例版本在國內是沒節點的，出國反而更慢
