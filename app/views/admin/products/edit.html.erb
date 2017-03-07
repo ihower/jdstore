@@ -12,6 +12,14 @@
   </div>
 
   <div class="group">
+    <%#= f.association :properties, :as => :check_boxes %>
+
+    <%= f.association :properties %>
+
+    <%#= f.select :property_ids, Property.all.map{ |x| [x.name, x.id] }, {}, :multiple => true , :class => "form-control" %> 
+  <div>
+
+  <div class="group">
     <%= f.input :description %>
   </div>
 
@@ -38,4 +46,5 @@
 
 <script>
   $("#product_category_id").select2();
+  $("#product_property_ids").select2();
 </script>
