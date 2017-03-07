@@ -6,6 +6,11 @@ class Admin::OrdersController < ApplicationController
 
   def index
     @orders = Order.order("id DESC").paginate(:page => params[:page])
+
+    @label = (Date.today-30.day..Date.today).to_a
+    @data = @label.map{ |date| 
+      Order.where( "created_at >= ? AND created_at < ?", date.beginning_of_day, date.end_of_day ).count
+    }
   end
 
   def show

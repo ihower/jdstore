@@ -1,4 +1,33 @@
+<script src="//cdn.bootcss.com/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+
 <h2>订单列表 </h2>
+
+<canvas id="myChart" width="400" height="400"></canvas>
+
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: <%= @label.to_json.html_safe %>,
+        datasets: [{
+            label: '# of Order',
+            data: <%= @data.to_json.html_safe %>,
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
 
 <table class="table table-bordered">
   <thead>
