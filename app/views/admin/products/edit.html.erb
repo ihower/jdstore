@@ -49,11 +49,16 @@
 
 <% end %>
 
+<%= content_for :js do %>
+
 <script>
+$(document).on("turbolinks:load", function(){ 
   $("#product_category_id").select2();
   $("#product_property_ids").select2();
 
   $('#product_publish_on').datepicker({ format: "yyyy/mm/dd" });
 
   autosize( $("#product_description") );
+})  
 </script>
+<% end %>
