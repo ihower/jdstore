@@ -151,7 +151,7 @@ google "bootstrap theme" 可以找到一堆 Bootstrap Theme，有免费也有付
 我们学过拆 layout 了，例如前台用 `app/views/layouts/application.html.erb`，后台用 `app/views/layouts/admin.html.erb`。那 css/js 也可以拆开，方法如下：
 
 * 新增 `app/assets/` 下的 manifest file，例如 `app/assets/stylesheets/admin.scss` 和 `app/assets/javascripts/admin.js`
-* 修改 `config/initializers/assets.rb` 的 `Rails.application.config.assets.precompile += %w( admin.css admin.js )`
+* 修改 `config/initializers/assets.rb` 的 `Rails.application.config.assets.precompile += %w( admin.css admin.js )`，接著重啟 Rails 服務器
 * 修改 `app/views/layouts/admin.html.erb` 换成载入 admin css/js
 
 
