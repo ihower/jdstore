@@ -19,7 +19,7 @@
   * 相对于动态档案：动态档案指的是经过 Rails 程序产生的 HTML 页面(xxx.html.erb)
 * 在 Rails 目录中，放在 `public` 目录下的是静态档案，浏览器可以直接读取，不会经过 Rails 程序 🖥 
   * 在 `public` 目录找不到檔案的話才會進到 Rails Router 路由系統
-* 除了 `public` 目录，Rails 也可将静态档案放在 `app/assets` 目录下，这功能叫做 Asset Pipeline。用户浏览器不能直接访问 `app/assets` 目录，在本地开发的时候，会经过 Rails 程序回传这些静态档案。部署上 production 服务器时，会先执行 `rake assets:precompile` 产生静态档案放在 `public/assets` 目录下，让浏览器可以访问。
+* 除了 `public` 目录，Rails 也可将静态档案放在 `app/assets` 目录下，由 Rails 统一管理打包这些静态档案，这功能叫做 Asset Pipeline。用户浏览器不能直接访问 `app/assets` 目录，在本地开发的时候，会经过 Rails 程序回传这些静态档案。部署上 production 服务器时，会先执行 `rake assets:precompile` 产生静态档案放在 `public/assets` 目录下，让浏览器可以访问。
 
 > 如果用 Capistrano 部署在 Linode 服务器，会在 `cap production deploy` 过程中在服务器上执行 `rake assets:precompile`。如果用Heroku 请参考[Rails Asset Pipeline on Heroku Cedar](https://devcenter.heroku.com/articles/rails-asset-pipeline#the-rails-4-asset-pipeline) 说明，在本地执行`rake assets :precompile` 将产生的`public/assets` 目录commit 进 git 库，再 push 上 Heroku。
 
