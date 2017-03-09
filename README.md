@@ -130,12 +130,19 @@ Rails 内建的选日期是三个下拉选年、月、日。可以用这个日�
 
 * 网上所有 jQuery 的教学文章，都是用`$(document).ready(function(){...})` 或`$(function(){...})`，在 HTML 载入完毕后执行 js 源码。但是用了 Turbolink 只会触发第一次而已，换页时不会再执行。 🖥
   * 解法是全部都要改 `$(document).on("turbolinks:load", function(){...})` 
-* 只有单页(page-specific) 用到的 javascript 代码，如果写在 `body` 里面，跳页回来时，会触发两次。 🖥
-  * 解法：用 `yield :js` 和 `content_for :js` 技巧，把 js 代码塞回 layout 的 `head` 里面 
+* 只有单页(page-specific) 用到的 javascript 代码，如果写在 `body` 里面，跳页回来时，会触发两次。某些 js code 重复执行两次没关系，但有些会有问题。 🖥
+  * 简单解法一：关掉 Turbolinks 的缓存功能，把 `<meta name="turbolinks-cache-control" content="no-cache">` 放到 layout 的 `head` 里面。
+  * 补充解法二：把layout 的`<body>` 改成`<body id="<%= "#{controller_name}-#{action_name}"%>">`，这样就可以在全局载入的` application.js` 中指定只有这一页才执行的js code，例如：
 
-> js debug 小技巧：`alert` 和 `console.log`
 
-⚠️ 同学们也可以选择直接绕过这个大坑，如果你碰到 js 灵异现象(贴上来的 js code 换页回來后不执行，但是重新整理就没问题。或是重复执行了两次等等)，可以试试看拆掉 Turbolinks：把 `Gemfile` 跟 `applicatio.js` 里面的 Turbolink 代码拿掉即可。
+    $(document).on("turbolinks:load", function() {
+      if ( $("#products-show").length > 0 ) {
+        console.log("product-show");
+      }
+    })
+
+
+⚠️ 同学们也大可以选择直接绕过这个大坑，如果你碰到 js 灵异现象(贴上来的 js code 换页回來后不执行，但是重新整理就没问题。或是跳页回來重复执行了两次等等)，可以试试看拆掉 Turbolinks：把 `Gemfile` 跟 `applicatio.js` 里面的 Turbolink 代码拿掉即可。
 
 ## 套现成的 Bootstrap Theme
 
