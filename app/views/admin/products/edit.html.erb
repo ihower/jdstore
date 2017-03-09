@@ -17,9 +17,12 @@
   </div>
 
   <div class="group">
-    <%#= f.association :properties, :as => :check_boxes %>
 
-    <%= f.association :properties %>
+    <%#= f.collection_check_boxes :property_ids, Property.all, :id, :name %>
+
+    <%= f.association :properties, :as => :check_boxes %>
+
+    <%#= f.association :properties %>
 
     <%#= f.select :property_ids, Property.all.map{ |x| [x.name, x.id] }, {}, :multiple => true , :class => "form-control" %> 
   <div>
