@@ -36,6 +36,7 @@ gem 'will_paginate'
 
 gem 'faker'
 gem 'figaro'
+gem 'fog'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
