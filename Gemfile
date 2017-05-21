@@ -35,6 +35,7 @@ gem 'aasm'
 gem 'will_paginate'
 
 gem 'faker'
+gem 'figaro'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
