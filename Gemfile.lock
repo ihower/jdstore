@@ -41,7 +41,12 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (7.1.4)
+    autoprefixer-rails (6.7.7.2)
+      execjs
     bcrypt (3.1.11)
+    bootstrap-sass (3.3.7)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.3)
     byebug (9.0.6)
     carrierwave (1.0.0)
@@ -68,6 +73,8 @@ GEM
     faker (1.7.3)
       i18n (~> 0.5)
     ffi (1.9.17)
+    font-awesome-rails (4.7.0.1)
+      railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.8.0)
@@ -184,11 +191,13 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
+  bootstrap-sass
   byebug
   carrierwave
   coffee-rails (~> 4.2)
   devise
   faker
+  font-awesome-rails
   jbuilder (~> 2.5)
   jquery-rails
   letter_opener
