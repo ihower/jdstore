@@ -61,6 +61,11 @@
       </tbody>
     </table>
 
+    <h2> 附件信息 </h2>
+    <div>
+      <%= link_to("下载附件", @order.attachment.url) %>
+    </div>
+
     <div class="pull-left">
       <% if @order.order_placed? || @order.paid? %>
          <%= link_to("申请取消订单", apply_to_cancel_order_path(@order), method: :post, class: "btn  btn-info") %>

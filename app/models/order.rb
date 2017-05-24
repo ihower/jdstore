@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-
+  mount_uploader :attachment, AttachmentUploader
   belongs_to :user
   has_many :product_lists
 
@@ -7,6 +7,7 @@ class Order < ApplicationRecord
   validates :billing_address, presence: true
   validates :shipping_name, presence: true
   validates :shipping_address, presence: true
+  
 
   before_create :generate_token
 
