@@ -8,3 +8,57 @@
     margin-top: 100px;
     padding-left: 90px;
 }
+
+ .intro-bigPic {
+   width: 420px;
+   height: 420px;
+
+   img {
+     width: 100%;
+   }
+ }
+
+ .intro-preview-box {
+   width: 450px;
+ }
+
+ .intro-preview {
+   margin-top: 15px;
+
+   .intro-preview-item {
+     padding: 1px;
+     margin-right: 13px;
+     overflow: hidden;
+
+     img {
+       width: 100%;
+       width: 70px;
+       height: 70px;
+     }
+   }
+
+   .intro-preview-activeItem {
+     border-color: #DB3652;
+   }
+ }
+
+
+
+ .fl {
+   float: left;
+   display: inline;
+ }
+
+ .border {
+   border: 1px solid #DDDDDD;
+ }
+
+ * {
+   margin: 0;
+   padding: 0;
+ }
+
+ //home page banner text
+ .banner-text {
+   font-size: 300%;
+ }
