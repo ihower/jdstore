@@ -4,167 +4,224 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
 
-body,
-html {
-    width: 100%;
-    height: 100%;
-}
+ //product show css
+ .intro-bigPic {
+   width: 420px;
+   height: 420px;
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
-}
+   img {
+     width: 100%;
+   }
+ }
 
-.topnav {
-    font-size: 14px;
-}
+ .intro-preview-box {
+   width: 450px;
+ }
 
-.lead {
-    font-size: 18px;
-    font-weight: 400;
-}
+ .intro-preview {
+   margin-top: 15px;
 
-.intro-header {
-    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-    padding-bottom: 50px;
-    text-align: center;
-    color: #f8f8f8;
-    background: url("https://ws3.sinaimg.cn/large/006tNbRwgy1ffz4l7poizj31gs0z777e.jpg") no-repeat center center;
-    background-size: cover;
-}
+   .intro-preview-item {
+     padding: 1px;
+     margin-right: 13px;
+     overflow: hidden;
 
-.intro-message {
-    position: relative;
-    padding-top: 20%;
-    padding-bottom: 20%;
-}
+     img {
+       width: 100%;
+       width: 70px;
+       height: 70px;
+     }
+   }
 
-.intro-message > h1 {
-    margin: 0;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-    font-size: 5em;
-}
+   .intro-preview-activeItem {
+     border-color: #DB3652;
+   }
+ }
 
-.intro-divider {
-    width: 400px;
-    border-top: 1px solid #f8f8f8;
-    border-bottom: 1px solid rgba(0,0,0,0.2);
-}
 
-.intro-message > h3 {
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-}
 
-@media(max-width:767px) {
-    .intro-message {
-        padding-bottom: 15%;
-    }
+ .fl {
+   float: left;
+   display: inline;
+ }
 
-    .intro-message > h1 {
-        font-size: 3em;
-    }
+ .border {
+   border: 1px solid #DDDDDD;
+ }
 
-    ul.intro-social-buttons > li {
-        display: block;
-        margin-bottom: 20px;
-        padding: 0;
-    }
+ * {
+   margin: 0;
+   padding: 0;
+ }
 
-    ul.intro-social-buttons > li:last-child {
-        margin-bottom: 0;
-    }
+ //home page banner text
+ .banner-text {
+   font-size: 300%;
+ }
 
-    .intro-divider {
-        width: 100%;
-    }
-}
+ //landing-page css
 
-.network-name {
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 2px;
-}
+ body,
+ html {
+     width: 100%;
+     height: 100%;
+ }
 
-.content-section-a {
-    padding: 50px 0;
-    background-color: #f8f8f8;
-}
+ body,
+ h1,
+ h2,
+ h3,
+ h4,
+ h5,
+ h6 {
+     font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+     font-weight: 700;
+ }
 
-.content-section-b {
-    padding: 50px 0;
-    border-top: 1px solid #e7e7e7;
-    border-bottom: 1px solid #e7e7e7;
-}
+ .topnav {
+     font-size: 14px;
+ }
 
-.section-heading {
-    margin-bottom: 30px;
-}
+ .lead {
+     font-size: 18px;
+     font-weight: 400;
+ }
 
-.section-heading-spacer {
-    float: left;
-    width: 200px;
-    border-top: 3px solid #e7e7e7;
-}
+ .intro-header {
+     padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+     padding-bottom: 50px;
+     text-align: center;
+     color: #f8f8f8;
+     background: url("https://ws3.sinaimg.cn/large/006tNbRwgy1ffz4l7poizj31gs0z777e.jpg") no-repeat center center;
+     background-size: cover;
+ }
 
-.banner {
-    padding: 100px 0;
-    color: #f8f8f8;
-    background: url("https://ws2.sinaimg.cn/large/006tNbRwgy1ffz4c8jzudj31hc0gogu8.jpg") no-repeat center center;
-    background-size: cover;
-}
+ .intro-message {
+     position: relative;
+     padding-top: 20%;
+     padding-bottom: 20%;
+ }
 
-.banner h2 {
-    margin: 0;
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-    font-size: 3em;
-}
+ .intro-message > h1 {
+     margin: 0;
+     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+     font-size: 5em;
+ }
 
-.banner ul {
-    margin-bottom: 0;
-}
+ .intro-divider {
+     width: 400px;
+     border-top: 1px solid #f8f8f8;
+     border-bottom: 1px solid rgba(0,0,0,0.2);
+ }
 
-.banner-social-buttons {
-    float: right;
-    margin-top: 0;
-}
+ .intro-message > h3 {
+     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+ }
 
-@media(max-width:1199px) {
-    ul.banner-social-buttons {
-        float: left;
-        margin-top: 15px;
-    }
-}
+ @media(max-width:767px) {
+     .intro-message {
+         padding-bottom: 15%;
+     }
 
-@media(max-width:767px) {
-    .banner h2 {
-        margin: 0;
-        text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-        font-size: 3em;
-    }
+     .intro-message > h1 {
+         font-size: 3em;
+     }
 
-    ul.banner-social-buttons > li {
-        display: block;
-        margin-bottom: 20px;
-        padding: 0;
-    }
+     ul.intro-social-buttons > li {
+         display: block;
+         margin-bottom: 20px;
+         padding: 0;
+     }
 
-    ul.banner-social-buttons > li:last-child {
-        margin-bottom: 0;
-    }
-}
+     ul.intro-social-buttons > li:last-child {
+         margin-bottom: 0;
+     }
 
-footer {
-    padding: 50px 0;
-    background-color: #f8f8f8;
-}
+     .intro-divider {
+         width: 100%;
+     }
+ }
 
-p.copyright {
-    margin: 15px 0 0;
-}
+ .network-name {
+     text-transform: uppercase;
+     font-size: 14px;
+     font-weight: 400;
+     letter-spacing: 2px;
+ }
+
+ .content-section-a {
+     padding: 50px 0;
+     background-color: #f8f8f8;
+ }
+
+ .content-section-b {
+     padding: 50px 0;
+     border-top: 1px solid #e7e7e7;
+     border-bottom: 1px solid #e7e7e7;
+ }
+
+ .section-heading {
+     margin-bottom: 30px;
+ }
+
+ .section-heading-spacer {
+     float: left;
+     width: 200px;
+     border-top: 3px solid #e7e7e7;
+ }
+
+ .banner {
+     padding: 100px 0;
+     color: #f8f8f8;
+     background: url("https://ws2.sinaimg.cn/large/006tNbRwgy1ffz4c8jzudj31hc0gogu8.jpg") no-repeat center center;
+     background-size: cover;
+ }
+
+ .banner h2 {
+     margin: 0;
+     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+     font-size: 3em;
+ }
+
+ .banner ul {
+     margin-bottom: 0;
+ }
+
+ .banner-social-buttons {
+     float: right;
+     margin-top: 0;
+ }
+
+ @media(max-width:1199px) {
+     ul.banner-social-buttons {
+         float: left;
+         margin-top: 15px;
+     }
+ }
+
+ @media(max-width:767px) {
+     .banner h2 {
+         margin: 0;
+         text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+         font-size: 3em;
+     }
+
+     ul.banner-social-buttons > li {
+         display: block;
+         margin-bottom: 20px;
+         padding: 0;
+     }
+
+     ul.banner-social-buttons > li:last-child {
+         margin-bottom: 0;
+     }
+ }
+
+ footer {
+     padding: 50px 0;
+     background-color: #f8f8f8;
+ }
+
+ p.copyright {
+     margin: 15px 0 0;
+ }
