@@ -57,6 +57,16 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
+  def destroy
+    @product = Product.find(params[:id])
+    if params[:photos] != nil
+      @product.photos.destroy_all
+    end
+    @product.destroy
+
+    redirect_to admin_products_path
+  end
+
   private
 
   def product_params

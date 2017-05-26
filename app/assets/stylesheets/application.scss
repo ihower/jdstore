@@ -3,12 +3,13 @@
 @import "font-awesome";
 @import "landing-page.css";
 
+//position of products in the center of products/index page
 .product-index {
     margin-top: 100px;
     padding-left: 90px;
 }
 
-
+//product show css
 .intro-bigPic {
   width: 420px;
   height: 420px;
@@ -56,4 +57,9 @@
 * {
   margin: 0;
   padding: 0;
+}
+
+//home page banner text
+.banner-text {
+  font-size: 300%;
 }

@@ -38,7 +38,10 @@ gem 'faker'
 gem 'figaro'
 gem 'fog'
 gem 'pry'
-
+# Summernote gem
+gem 'summernote-rails'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
