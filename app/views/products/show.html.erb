@@ -1,11 +1,35 @@
 <div class="row">
   <div class="col-md-6">
-    <% if @product.image.present? %>
-      <%= image_tag(@product.image.medium.url, class: "thumbnail") %>
-    <% else %>
-      <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
-    <% end %>
+		    <div class="intro-bigPic border">
+		      <% if @photos.present? %>
+		        <img id="thumb" src="<%= @photos.first.avatar.medium.url %>">
+		      <% end %>
+		    </div>
+
+        <div class="intro-preview-box">
+        		    <ul class="intro-preview">
+        		      <% if @photos.present? %>
+              		        <% @photos.each_with_index do |p, index| %>
+
+                                  <% if index == 0 %>
+                                    <li class="border intro-preview-item intro-preview-activeItem fl">
+                                      <%= image_tag p.avatar.medium.url %>
+                                    </li>
+                      		        <% end %>
+
+                                  <% if index >0 && index < 10 %>
+                                  <li class="border intro-preview-item fl">
+                                    <%= image_tag p.avatar.medium.url %>
+                                  </li>
+                                  <% end %>
+
+              		        <% end %>
+        		       <% end %>
+        		    </ul>
+        </div>
   </div>
+
+
   <div class="col-md-6">
     <h2> <%= @product.title %> </h2>
     <div style="height:100px;">
@@ -23,7 +47,7 @@
       <% else %>
         已销售一空，无法购买
       <% end %>
-            
+
     </div>
   </div>
 </div>

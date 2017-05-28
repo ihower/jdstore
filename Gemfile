@@ -9,7 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -23,8 +23,8 @@ gem 'coffee-rails', '~> 4.2'
 
 gem 'devise'
 
-#gem 'bootstrap-sass'
-#gem 'font-awesome-rails'
+gem 'bootstrap-sass'
+gem 'font-awesome-rails'
 
 gem 'simple_form'
 
@@ -35,7 +35,13 @@ gem 'aasm'
 gem 'will_paginate'
 
 gem 'faker'
-
+gem 'figaro'
+gem 'fog'
+gem 'pry'
+# Summernote gem
+gem 'summernote-rails'
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -53,6 +59,8 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'sqlite3'
+  gem 'awesome_rails_console'
 end
 
 group :development do
@@ -68,3 +76,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+group :production do
+  gem 'pg'
+end

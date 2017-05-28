@@ -4,7 +4,7 @@
     <h2> 订单明细 (<%= render_order_paid_state(@order) %>) </h2>
 
     <%= render "admin/orders/state_option", order: @order %>
-    
+
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -38,6 +38,7 @@
        </span>
      </div>
 
+
      <hr>
 
      <h2> 寄送资讯 </h2>
@@ -62,6 +63,16 @@
         <tr>
           <td>
             <%= @order.shipping_name %> - <%= @order.shipping_address %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            附件照片
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= link_to("下载附件", @order.attachment.url) %>
           </td>
         </tr>
       </tbody>
