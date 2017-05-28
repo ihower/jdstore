@@ -1,6 +1,8 @@
 范例专案: https://github.com/ihower/jdstore
 参考资料: https://ihower.tw/rails/
 
+fiona 火冰测试
+
 ## 范例安装指南
 
 * `git clone https://github.com/ihower/jdstore.git ihower-jdstore`
@@ -17,7 +19,7 @@
 
 * 静态档案(static file，又叫做 asset) 指的是 CSS, JavaScript 和图档(images) 等：无论哪个用户、所有浏览器拿到的档案都一样
   * 相对于动态档案：动态档案指的是经过 Rails 程序产生的 HTML 页面(xxx.html.erb)
-* 在 Rails 目录中，放在 `public` 目录下的是静态档案，浏览器可以直接读取，不会经过 Rails 程序 🖥 
+* 在 Rails 目录中，放在 `public` 目录下的是静态档案，浏览器可以直接读取，不会经过 Rails 程序 🖥
   * 在 `public` 目录找不到檔案的話才會進到 Rails Router 路由系統
 * 除了 `public` 目录，Rails 也可将静态档案放在 `app/assets` 目录下，由 Rails 统一管理打包这些静态档案，这功能叫做 Asset Pipeline。用户浏览器不能直接访问 `app/assets` 目录，在本地开发的时候，会经过 Rails 程序回传这些静态档案。部署上 production 服务器时，会先执行 `rake assets:precompile` 产生静态档案放在 `public/assets` 目录下，让浏览器可以访问。
 
@@ -37,7 +39,7 @@
 * 放`app/assets/images` 的图档，也必须透过 Rails helper 才能够访问到  (因为有 fingerprint 的关系，不透过 Rails helper 你不知道最后的档名) 🖥
   *  在 erb 中用 `image_tag` 或 `asset_path`
   *  在 js 需要改档名为`js.erb` 就可以用 rails helper
-  *  在 Sass 中可以用 `image-url` 
+  *  在 Sass 中可以用 `image-url`
 * Asset Pipeline 在本地开发 development 和部署上 production 的实际运作不一样：本机开发时是拆开载入，方便除错。上 production 时才会打包压缩。
   *  ⚠️ 因此专案千万不要最后一天才部署上 Production，因为有些前端问题是在 Production 环境上才会发生，不要拖到最后一天才发现!!!! 会逼死人。
 
@@ -78,7 +80,7 @@ Bootstrap 在教材中装过了，这里我们很快地示范一遍，说明其�
 
 * 因为这个 gem 是用 Sass 写的，所以步骤中将 `application.css` 改名 `application.scss` 了。请统一用 `@import` 语法载入 ⚠️ 注意副档名不要加 `.css`，最后要加 `;`。
 * js 部分可以直接 `//= require bootstrap-sprockets` 就会载入全部的 bootstramp 组件，可以不需要逐笔载入，例如 `//= require bootstrap/modal`、`//= require bootstrap/alert` 等等
- 
+
 ## Font Awesome
 
 Bootstrap 3 里面虽然也有 Font Icon，但不够用而且之后的版本拿掉了。建议都改用 Font Awesome。
@@ -129,7 +131,7 @@ Rails 内建的选日期是三个下拉选年、月、日。可以用这个日�
 虽然有加速的效果，但是却很干扰其他 `javascript` 源码的载入，具体来说，有两个坑：
 
 * 网上所有 jQuery 的教学文章，都是用`$(document).ready(function(){...})` 或`$(function(){...})`，在 HTML 载入完毕后执行 js 源码。但是用了 Turbolink 只会触发第一次而已，换页时不会再执行。 🖥
-  * 解法是全部都要改 `$(document).on("turbolinks:load", function(){...})` 
+  * 解法是全部都要改 `$(document).on("turbolinks:load", function(){...})`
 * 只有单页(page-specific) 用到的 javascript 代码，如果写在 `body` 里面，跳页回来时，会触发两次。某些 js code 重复执行两次没关系，但有些会有问题。 🖥
   * 简单解法一：关掉 Turbolinks 的缓存功能，把 `<meta name="turbolinks-cache-control" content="no-cache">` 放到 layout 的 `head` 里面。
   * 补充解法二：把layout 的`<body>` 改成`<body id="<%= "#{controller_name}-#{action_name}"%>">`，这样就可以在全局载入的` application.js` 中指定只有这一页才执行的js code，例如：
@@ -202,4 +204,3 @@ google "bootstrap theme" 可以找到一堆 Bootstrap Theme，有免费也有付
 
 * https://fullstack.xinshengdaxue.com/posts/237
 * https://github.com/aasm/aasm 用法
-
